@@ -1,0 +1,6 @@
+[book]
+authors = ["Andrii Sokyrko"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Mamoru Developer Docs"
