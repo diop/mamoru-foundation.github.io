@@ -1,6 +1,6 @@
 ## Mamoru Developer Docs
 
-See rendered version 
+See rendered version [here](https://mamoru-foundation.github.io/)
 
 ## Contributing
 
@@ -9,4 +9,9 @@ Install `mdbook`:
 cargo install mdbook
 ```
 
-See `Makefile` for available commands.
+Serve the docs:
+```shell
+make serve
+```
+
+See `Makefile` for more commands.
