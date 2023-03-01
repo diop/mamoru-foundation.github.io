@@ -82,7 +82,7 @@ const SAFE_EXECUTION_SUCCESS_HASH: string = "0x442e715f626346e8c54381002da614f62
 const MY_SAFE_ADDRESS: string = "0x785a205084ac256cad3133326abee31b5e53931a";
 
 export function main(): void {
-    let rows = query(`SELECT e.topic0 FROM events e WHERE e.address = '${MY_SAFE_ADDRESS}'`);
+    let rows = query(`SELECT bytes_to_hex(e.topic0) AS topic0 FROM events e WHERE e.address = '${MY_SAFE_ADDRESS}'`);
 
     rows.forEach(row => {
         if (row.getString("topic0")!.valueOf() == SAFE_EXECUTION_SUCCESS_HASH) {
