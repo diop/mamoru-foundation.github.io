@@ -10,8 +10,11 @@
 
 - [SQL Daemon Development](./guides/sql-daemon-development.md)
 - [WASM Daemon Development](./guides/wasm-daemon-development.md)
-- [Mamoru CLI]()
+- [Mamoru CLI](./guides/using-the-mamoru-cli.md)
 - [Subscribing for incidents]()
+
+# Reference
+- [Mamoru CLI Reference](./reference/cli.md)
 
 ---
 
