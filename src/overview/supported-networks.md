@@ -12,4 +12,6 @@ Currently, Mamoru supports four ecosystems, with plans to continually expand its
 |  6 |     APTOS_TESTNET                         | Active |
 |  7 |     APTOS_MAINNET                         | Active |
 
-© Copyright 2023 Mamoru.ai 
+As the blockchain landscape evolves, Mamoru will continue to grow its ecosystem support to provide comprehensive security solutions for a wide range of blockchain platforms.
+
+© Copyright 2023 Mamoru.ai - MIT License
