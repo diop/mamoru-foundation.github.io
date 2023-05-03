@@ -3,7 +3,7 @@
 ## CLI
 The CLI is a globally installed `npm` package that provides access to the `mamoru-cli` command in your terminal. It allows you to scaffold both SQL and WASM Daemons via `mamoru-cli init`.
 
-## Vlaidation Chain
+## Validation Chain
 The validation chain is the core of Mamoru. It validates incoming incident reports, manages Daemons and DaemonMetadatas, and registers them in the blockchain.
 
 ## Daemon
