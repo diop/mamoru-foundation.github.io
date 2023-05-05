@@ -1,6 +1,0 @@
-[book]
-authors = ["Mamoru Contributors"]
-language = "en"
-multilingual = false
-src = "src"
-title = "Mamoru Developer Docs"
