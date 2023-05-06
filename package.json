@@ -1,0 +1,17 @@
+{
+  "name": "mamoru-foundation-docs",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "next build",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "^13.4.1",
+    "nextra": "^2.5.0",
+    "nextra-theme-docs": "^2.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

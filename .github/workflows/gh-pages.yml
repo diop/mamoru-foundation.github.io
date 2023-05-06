@@ -16,17 +16,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install mdBook
-        uses: peaceiris/actions-mdbook@v1
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          mdbook-version: '0.4.27'
+          node-version: 'lts/*'
+          cache: 'yarn'
 
-      - name: Build the book
-        run: make build
+      - name: Build
+        run: |
+          yarn --frozen-lockfile
+          yarn build
+          yarn export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          publish_dir: ./out
