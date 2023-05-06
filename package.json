@@ -1,4 +1,12 @@
 {
+  "name": "mamoru-foundation-docs",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "next build",
+    "export": "next export"
+  },
   "dependencies": {
     "next": "^13.4.1",
     "nextra": "^2.5.0",
