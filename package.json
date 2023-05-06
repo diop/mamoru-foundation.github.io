@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "serve": "next",
     "build": "next build",
     "export": "next export"
   },
