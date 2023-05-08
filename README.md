@@ -1,5 +1,5 @@
 # Mamory Documenation App
-This app powers the mamoru documentation site at [mamoru-foundation.github.io](mamoru-foundation.github.io)
+This app powers the mamoru documentation site at [mamoru-foundation.github.io]('https://mamoru-foundation.github.io')
 
 ## Requirements
     - NodeJS v12^
