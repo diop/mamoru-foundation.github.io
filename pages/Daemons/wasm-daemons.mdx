@@ -62,7 +62,7 @@ npm install --save-dev assemblyscript@0.26.3
 npx asinit .
 ```
 
-### Write a WASM daemon - Example 1
+### Write a WASM Daemon - Example 1
 
 Let's emit an incident if someone withdraws money from the Safe.
 The function we need is called `execTransaction`, the code is located [here](https://github.com/safe-global/safe-contracts/blob/96a4e280876c33c53a09b5ef6ee78201a101ff58/contracts/Safe.sol#L119-L146).
@@ -74,17 +74,31 @@ We will be tracking this event in the network transactions and emit an incident 
 This how AssemblyScript Mamoru Daemon code may look like:
 ```typescript
 import { query, report } from "@mamoru-ai/mamoru-sdk-as/assembly";
+
 // `ExecutionSuccess(bytes32,uint256)` event
 const SAFE_EXECUTION_SUCCESS_HASH: string = "0x442e715f626346e8c54381002da614f62bee8d27386535b2521ec8540898556e";
-// the address of your Gnosis Safe
+
+// The address of your Gnosis Safe
 const MY_SAFE_ADDRESS: string = "0x785a205084ac256cad3133326abee31b5e53931a";
+
 export function main(): void {
-    let rows = query(`SELECT e.topic0 FROM events e WHERE e.address = '${MY_SAFE_ADDRESS}'`);
+    const rows = queryEventsByAddress(MY_SAFE_ADDRESS);
+
     rows.forEach(row => {
-        if (row.getString("topic0")!.valueOf() == SAFE_EXECUTION_SUCCESS_HASH) {
+        if (isExecutionSuccessEvent(row)) {
             report();
         }
-    })
+    });
+}
+
+function queryEventsByAddress(address: string): ArrayBuffer {
+    const sqlQuery = `SELECT bytes_to_hex(e.topic0) AS topic0 FROM events e WHERE e.address = '${address}'`;
+    return query(sqlQuery);
+}
+
+function isExecutionSuccessEvent(row: ArrayBuffer): boolean {
+    const eventHash = row.getString("topic0")!.valueOf();
+    return eventHash == SAFE_EXECUTION_SUCCESS_HASH;
 }
 ```
 Replace `MY_SAFE_ADDRESS` to yours and put the resulting code into `./assembly/index.ts`.
@@ -94,7 +108,7 @@ npx asc ./assembly/index.ts --target release --exportRuntime
 ```
 You'll see a file `./build/release.wasm` that is the compiled daemon in WebAssembly format.
 
-## Write a WASM daemon - Example 2
+## Write a WASM Daemon - Example 2
 Here's an example of a Mamoru WASM daemon that listens for ExecutionSuccess events in a Gnosis Safe contract and reports the transaction hash for each detected event:
 
 ```typescript
