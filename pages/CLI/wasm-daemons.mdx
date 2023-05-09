@@ -1,0 +1,14 @@
+# WASM Daemon Development
+
+WASM Daemons allow you to define incident matching logic using any language that can be compiled to WebAssembly.
+Currently, only [AssemblyScript](https://www.assemblyscript.org/) is supported.
+You can write a custom code against a blockchain context, decide when to emit an incident, customize message, severity, etc.
+
+1. [Prerequisite](#prerequisite)
+    1. [Setup environment](#setup-environment)
+    2. [Define contract for monitoring](#define-contract-for-monitoring)
+2. [Creating a Daemon](#creating-a-daemon)
+3. [Testing](#testing)
+4. [Deploying](#deploying)
+
+After a few minutes, Mamoru Sniffers will fetch your daemon and start running your daemon against blockchain transactions.
