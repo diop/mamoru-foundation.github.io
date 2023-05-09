@@ -71,14 +71,19 @@ yarn global upgrade --latest mamoru-cli
 To create a new project, run:
 
 ```jsx
-mamoru-cli init my-new-daemon --type sql --chain sui
+mamoru-cli init my-new-daemon --type sql --chain SUI_TESTNET
 ```
 
 This command will create a SQL project targeting *[sui blockchain](https://sui.io/)* in the "my-new-daemon" folder. To see all available parameters for the command, please check the reference
 
-Once the project is created, you will see a prompt similar to this:
+Once the project is created, you will see a directory structure similar to this one:
 
 ```bash
+.
+├── manifest.yml
+├── package.json
+├── queries.yml
+└── readme.md
 ```
 
 To get started, move to your directory and install dependencies using either `npm install` or `yarn`.
