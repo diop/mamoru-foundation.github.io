@@ -1,4 +1,6 @@
 {
     "overview": "Overview",
-    "sdk": "SDK"
+    "sdk": "SDK",
+    "hetzner": "Hetzner",
+    "contabo": "Contabo"
 }
