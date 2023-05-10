@@ -5,8 +5,8 @@
     "incidents": "Incidents",
     "networks": "Networks",
     "CLI": "CLI",
-    "Validators": "Validators",
     "Sniffers": "Sniffers",
     "MamoruChain": "MamoruChain",
+    "Validators": "Validators",
     "Appendix": "Appendix"
 }
