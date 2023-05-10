@@ -1,11 +1,11 @@
-# Mamory Documenation App
+# Mamoru Documentation App
 This app powers the mamoru documentation site at [mamoru-foundation.github.io]('https://mamoru-foundation.github.io')
 
 ## Requirements
     - NodeJS v12^
     - `yarn` or `npm`
 
-## To start
+## To Start
     - `yarn`
     - `yarn next`
 
