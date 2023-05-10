@@ -2,23 +2,23 @@
 
 Sniffers play a crucial role in the Mamoru ecosystem and the Mamoru Core SDK is a powerful tool designed to augment the security landscape of Ethereum-based projects. In this overview, we'll provide an understanding of their purpose, functionality, and how they contribute to the security of the network.
 
-What are Sniffers?
+## What are Sniffers?
 Sniffers are specialized nodes within the Mamoru network that monitor and analyze transactions and events in real-time. They are the heart of our SDK, acting as Ethereum transaction sniffers that meticulously monitor and trace block transactions, events, and calls, actively searching for any anomalies. Their primary function is to detect and report suspicious activities or incidents based on customizable rules defined in SQL or WASM. By continuously scanning the blockchain for potential threats, Sniffers help maintain the overall security and integrity of the network.
 
-Key Functions of Sniffers
+## Key Functions of Sniffers
 Sniffers perform several essential tasks within the Mamoru ecosystem:
 
-Monitoring Transactions and Events: Sniffers continuously observe and process transactions, events, and state changes within the supported blockchains.
+1. **Monitoring** Transactions and Events: Sniffers continuously observe and process transactions, events, and state changes within the supported blockchains.
 
-Applying Custom Rules: Sniffers apply user-defined SQL or WASM rules to detect incidents, allowing for highly customizable monitoring tailored to specific needs and requirements.
+2. **Applying Custom Rules**: Sniffers apply user-defined SQL or WASM rules to detect incidents, allowing for highly customizable monitoring tailored to specific needs and requirements.
 
-Real-time Incident Reporting: When an incident is detected, Sniffers quickly relay the information to the validation chain, enabling prompt and automated defensive actions.
+3. **Real-time Incident Reporting**: When an incident is detected, Sniffers quickly relay the information to the validation chain, enabling prompt and automated defensive actions.
 
-Supporting Cross-Chain Analysis: Sniffers can operate across different chains and contracts, enabling the detection of complex threats and attack scenarios that span multiple blockchains.
+4. **Supporting Cross-Chain Analysis**: Sniffers can operate across different chains and contracts, enabling the detection of complex threats and attack scenarios that span multiple blockchains.
 
-Our SDK is flexible and can be integrated into multiple Ethereum files depending on the sync mode you're using. For instance, you can incorporate it into the Ethereum light client file go-ethereum/light/lightchain.go for light mode, or into the blockchain file go-ethereum/core/blockchain.go for full or snap mode. Moreover, it's designed to work seamlessly with the transaction pool in full and snap sync modes.
+Our SDK is flexible and can be integrated into multiple Ethereum files depending on the sync mode you're using. For instance, you can incorporate it into the Ethereum light client file `go-ethereum/light/lightchain.go` for light mode, or into the blockchain file `go-ethereum/core/blockchain.go` for full or snap mode. Moreover, it's designed to work seamlessly with the transaction pool in full and snap sync modes.
 
-How Sniffers Enhance Security
+## How Sniffers Enhance Security
 By actively monitoring and analyzing on-chain activities, Sniffers provide an additional layer of security to the blockchain ecosystem. Their real-time detection and reporting capabilities enable users to swiftly react to potential threats and mitigate risks. The customizable rules engine allows Sniffers to adapt to a variety of use cases, making them an essential tool for securing critical infrastructure, DeFi platforms, DAOs, exchanges, and more.
 
 To get started, you need to install the SDK into your Ethereum-based project using the go get command. Next, you'll have to add the provided code snippets to their respective files based on your sync mode. Once that's done, build your project using make geth, and then export the Mamoru environment variables to configure the tool.
