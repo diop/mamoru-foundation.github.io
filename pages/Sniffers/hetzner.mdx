@@ -1,6 +1,74 @@
 # Deploy to Hetzner
-Cheaply and easily deploy your sniffer to Hetzner.
+This guide provides instructions to install a Geth Node with the Mamoru SDK on a Hetzner VPS.
 
 ## VPS Requirements
 
 ## Instructions
+
+### Step 1: Log in to your Hetzner VPS
+```shell
+ssh root@your_VPS_IP
+```
+
+### Step 2: Update Your System
+Before you start, ensure that your VPS is up to date:
+
+```shell
+sudo apt-get update
+sudo apt-get upgrade -y
+```
+
+### Step 3: Install Necessary Dependencies
+You will need to install the required dependencies to compile the Geth client and Mamoru SDK:
+```shell
+sudo apt-get install -y build-essential golang-go
+```
+
+### Step 4: Clone and Build the Geth Client
+Clone the go-ethereum repository and switch to the latest stable branch:
+```shell
+git clone https://github.com/ethereum/go-ethereum.git
+cd go-ethereum
+git checkout v1.11.5
+```
+
+Compile and install Geth:
+```shell
+make geth
+```
+
+### Step 5: Install the Mamoru SDK
+Clone the Mamoru SDK repository:
+```shell
+go get github.com/Mamoru-Foundation/geth-mamoru-core-sdk
+```
+
+### Step 6: Configure Geth for Mamoru
+Depending on your syncmode (--syncmode light, --syncmode full, or --syncmode snap), make the necessary changes to the go-ethereum files as mentioned in the Mamoru SDK README.
+
+### Step 7: Export Mamoru Environment Variables
+Set the required Mamoru environment variables:
+```shell
+export MAMORU_CHAIN_TYPE=<chain-type>
+export MAMORU_SNIFFER_ENABLE=true
+export MAMORU_PRIVATE_KEY=<private-key>
+export MAMORU_CHAIN_ID=<validations-chain-id>
+export MAMORU_ENDPOINT="https://validation-chain-url"
+```
+
+### Step 8: Run the Geth Node
+Finally, run your Geth node with your desired network:
+```shell
+./build/bin/geth --goerli
+```
+
+If everything was done correctly, you should now have a running Geth node with the Mamoru SDK installed on your Hetzner VPS!
+
+### Note:
+This guide assumes you are using the goerli test network. For mainnet or other testnets, replace --goerli with your desired network flag.
+```javascript
+Please note that these instructions assume that you are comfortable with shell commands and have basic knowledge about Ethereum nodes. Always remember to replace placeholder values (like `your_VPS_IP`, `<chain-type>`, `<private-key>`, `<validations-chain-id>`, and `https://validation-chain-url`) with your actual values.
+```
+
+
+
