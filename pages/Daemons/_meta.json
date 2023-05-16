@@ -1,0 +1,9 @@
+{
+    "overview": "Overview",
+    "prerequisites": "Prerequisites",
+    "developing-sql-daemons": "Developing SQL Daemons",
+    "developing-wasm-daemons": "Developing WASM Daemons",
+    "testing": "Testing Daemons",
+    "publishing": "Publishing Daemons",
+    "ideas": "Daemons Ideas"
+}

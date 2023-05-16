@@ -1,12 +1,11 @@
 {
-    "index": "Welcome",
-    "architecture": "Architecture",
-    "monitoring": "Monitoring",
-    "incidents": "Incidents",
-    "networks": "Networks",
-    "CLI": "CLI",
-    "Sniffers": "Sniffers",
+    "index": "Getting Started",
+    "Introduction": "Introduction",
+    "Daemons": "Daemon Development",
     "MamoruChain": "MamoruChain",
-    "Validators": "Validators",
-    "Appendix": "Appendix"
+    "Sniffers": "Sniffers",
+    "sdk-api-reference": "SDK API Reference",
+    "references": "CLI Reference",
+    "glossary": "Glossary",
+    "Support": "Support"
 }

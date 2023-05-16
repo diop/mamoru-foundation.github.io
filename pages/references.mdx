@@ -1,0 +1,53 @@
+#  Mamoru Command Line Interface (CLI)
+The Mamoru CLI is a powerful tool that allows developers to initialize, build, and publish their projects directly from the command line. This guide will walk you through the basic commands and options available in the Mamoru CLI.
+
+## Basic Usage
+The basic usage of the Mamoru CLI is as follows:
+```shell
+mamoru-cli [options] [command]
+```
+
+### Options
+* `-v, --verbose`: Use this option to increase verbosity and display execution logs.
+* `-h, --help`: Use this option to display help for a command.
+
+### Commands
+The Mamoru CLI provides the following commands:
+
+#### init
+The `init` command initializes a new project.
+
+Usage:
+```shell
+init [options] <path>
+```
+
+Arguments:
+* `path`: The path to the folder with the project. The default is an empty string.
+
+Options:
+* `-t, --type <type>`: The type of project. Options are "sql" or "wasm". The default is "wasm".
+* `-c, --chain <chain>`: The chain where the daemon runs. Options are "ethereum", "bsc", or "sui".
+* `-n, --name <name>`: The name of the project. The default is "Default Name".
+* `-d, --description <description>`: The description of the project. The default is "Mamoru Daemon".
+* `-t, --tags <tags>`: The tags of the project, comma-separated. The default is "mamoru,daemon".
+* `-l, --logo <logo>`: The logo of the project. It should be a URL. The default is "https://mamoru.ai/default-daemon-logo.png".
+* `--subscribable`: Indicates if the project is subscribable or standalone. The default is false.
+
+#### build 
+The `build` command compiles the project.
+
+Usage: 
+```shell
+build [options] [path]
+```
+
+Arguments:
+* `path`: The path to the folder with the project. The default is "." (the current directory).
+
+Options:
+* `--rpc <rpcUrl>`: The RPC URL of the chain.
+* `--gas <gas>`: The gas fee of the transaction. The default is "200000".
+* `-k, --private-key <key>`: The private key of the account that will be used to publish the project.
+
+Remember to replace placeholder values (like `<path>`, `<type>`, `<chain>`, `<name>`, `<description>`, `<tags>`, `<logo>`, `<rpcUrl>`, `<gas>`, and `<key>`) with your actual values when using these commands.
