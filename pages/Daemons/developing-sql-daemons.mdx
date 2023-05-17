@@ -1,0 +1,87 @@
+# Creating SQL Daemons
+In this tutorial, we'll learn how to use the Mamoru CLI to write an SQL Daemon for the Mamoru-Pontem LiquidSwap platform. The daemon will monitor specific events on the blockchain and generate corresponding alerts based on the provided SQL queries.
+
+## Prerequisites
+* Mamoru CLI installed on your machine.
+* Familiarity with SQL and YAML syntax.
+
+## Step 1: Create the SQL Daemon project
+First, create a new folder for your Mamoru SQL Daemon project:
+```shell
+mkdir mamoru-pontem-liquidswap
+cd mamoru-pontem-liquidswap
+```
+
+Next, use the Mamoru CLI to initialize the project with the following command:
+
+```shell
+mamoru-cli init -t sql -c APTOS_TESTNET -n mamoru-pontem-liquidswap -d "SQL Daemons for Pontem LiquidSwap" -l "https://assets.website-files.com/60536b901b879c2f395d75d0/6433c9aa562f382eaa1b83f8_Pontem_logo_sign.png" --tags "mamoru,daemon" .
+```
+
+This will generate the basic project structure with the required files. Your directory struture should look similar to this:
+```shell
+.
+├── manifest.yml
+├── package.json
+├── queries.yml
+└── readme.md
+```
+
+## Step 2: Edit the queries.yml file and add the content below:
+```yml
+queries:
+  - query: |
+      SELECT 1 FROM call_traces ct \
+        WHERE ct.transaction_module = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::router_v2" \
+        AND ct.function = "register_pool"
+    incidentMessage: "New pool created"
+    severity: INFO
+
+  - query: |
+      SELECT 1 FROM call_traces ct \
+      WHERE ct.transaction_module = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::global_config" \
+      AND starts_with(ct.function, "set_")
+    incidentMessage: "Global config has been changed"
+    severity: ALERT
+
+  - query: |
+      SELECT 1 FROM call_traces ct \
+      WHERE ct.transaction_module = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::emergency" \
+      AND ct.function = "pause"
+    incidentMessage: "Emergency Pause"
+    severity: ALERT
+
+  - query: |
+      SELECT 1 FROM call_traces ct \
+      WHERE ct.transaction_module = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::emergency" \
+      AND ct.function = "resume"
+    incidentMessage: "Emergency Resume"
+    severity: ALERT
+
+  - query: |
+      SELECT 1 FROM call_traces ct \
+      WHERE ct.transaction_module = "0x190d44266241744264b964a37b8f09863167a12d3e70cda39376cfb4e3561e12::emergency" \
+      AND ct.function = "disable_forever"
+    incidentMessage: "An account has been disabled forever"
+    severity: ALERT
+```
+
+These SQL queries define the events that the Mamoru Daemon will monitor on the blockchain.
+
+## Step 4: Build and publish the SQL Daemon
+Before publishing the SQL Daemon, use the Mamoru CLI to build the project:
+
+```shell
+mamoru-cli build
+```
+
+Now, to publish the SQL Daemon, use the following command, replacing `<rpcUrl>` with the RPC URL of the Aptos chain and `<privateKey>` with your private key:
+
+```shell
+mamoru-cli publish --rpc <rpcUrl> --private-key <privateKey>
+```
+
+The Mamoru CLI will then deploy the SQL Daemon to the specified blockchain, and it will start monitoring events based on the provided SQL queries.
+
+## Conclusion
+In this tutorial, you learned how to use the Mamoru CLI to create, configure, and publish an SQL Daemon to monitor events on the Mamoru-Pontem LiquidSwap platform. You can now use this

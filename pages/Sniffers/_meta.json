@@ -1,6 +1,5 @@
 {
-    "overview": "Overview",
-    "sdk": "SDK",
-    "hetzner": "Hetzner",
-    "contabo": "Contabo"
+    "requirements": "Requirements",
+    "pre-requisites": "Prerequisites",
+    "networks": "Networks"
 }

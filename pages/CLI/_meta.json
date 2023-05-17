@@ -1,8 +1,0 @@
-{
-    "overview": "Overview",
-    "usage": "How To",
-    "daemons": "Daemons",
-    "sql-daemons": "SQL Daemons",
-    "wasm-daemons": "WASM Daemons",
-    "ideas": "Daemon Ideas"
-}
