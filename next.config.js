@@ -5,7 +5,7 @@ const withNextra = require('nextra')({
   });
 
 module.exports = withNextra()
-module.exports.basePath = '/docs';
+// module.exports.basePath = '/docs';
 module.exports.images = {
     unoptimized: true
 };
