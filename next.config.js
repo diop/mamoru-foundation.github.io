@@ -6,6 +6,8 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra()
 module.exports.basePath = '/docs';
+module.exports.assetPrefix = '/docs';
+module.exports.trailingSlash = false;
 module.exports.images = {
     unoptimized: true
 };
